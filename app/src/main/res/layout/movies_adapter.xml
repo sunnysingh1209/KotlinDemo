@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.example.kotlindemo.esoftware.Movies" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/mainAdapter_LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <!--android:src="@{category.imageUrl}"-->
+                    <!--bind:imagePath="@{category.imagePath}"
+                     app:imagePath="@{category.imagePath}" -->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/mainAdapter_Img"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_avatar"
+                        app:image="@{movie.image}"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_toLeftOf="@id/demoAdapter_chBox"
+                        android:layout_toRightOf="@id/mainAdapter_Img"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/demoAdapter_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:text="@{movie.title, default=title}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/notesAdapter_note"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="4"
+                            android:text="@{movie.rating}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/notesAdapter_timeStamp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{movie.language , default =lang}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/demoAdapter_chBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:checked="false"
+                        android:padding="4dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

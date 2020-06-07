@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="demoOne"
+            type="com.example.kotlindemo.model.Item" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".DemoActivityOne">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_avatar"
+            app:profileImage="@{imageUrl}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:text="@{demoOne.name, default = TextView}" />
+
+        <EditText
+            android:id="@+id/demoOne_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="name"
+            android:padding="6dp"
+            android:text="@={demoOne.name}" />
+
+        <EditText
+            android:id="@+id/demoOne_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"
+            android:text="@{demoOne.email}" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{demoOne::onButtonClick}"
+            android:text="Click" />
+
+    </LinearLayout>
+
+</layout>
